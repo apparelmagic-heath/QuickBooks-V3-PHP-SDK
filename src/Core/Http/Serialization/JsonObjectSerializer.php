@@ -204,7 +204,7 @@ class JsonObjectSerializer extends IEntitySerializer
             if(FacadeHelper::isRecurrsiveArray($v)){
               $list = array();
               foreach($v as $kk => $vv){
-                  $list[] = array_filter($vv, [self::class, 'valueIsNotNullOrEmptyString']);
+                  $list[] = array_filter($vv, 'strlen'); // APPARELMAGIC CHANGED: added strlen
               }
               $returned[$k] = $list;
             }
